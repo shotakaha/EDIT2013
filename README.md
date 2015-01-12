@@ -45,14 +45,12 @@ Move to this directory first. Then execute program named "adc" or "multiadc".
 You need to specify NEVENT (event number) and OFN (output filename) as arguments.
 Output file is created in space-separated-text format.
 
-Sample command 1:
-
 ```bash
 $ cd daq
 $ ./adc NEVENT OFN (additional info).
 ```
 
-Sample command 2: (If you run without any argument, usage will be printed.)
+If you run without any argument, usage will be printed.
 
 ```bash
 $ ./adc
@@ -74,8 +72,10 @@ It is REALLY important to name data with easy-to-remember-and-handle convention.
 (If you named "test1.txt", "test2.txt", ... and so on,
  you will get depressed when you came back to check data next week.)
 
-My favorite way is to separate data by day. (it depends by purpose, though)
+My favorite way is to separate data by day (it depends on purpose, though).
+
 I prefer OFN to be named like "../data/YMD/ANYTHING%03d.txt", where
+
 - YMD      --- date (YYYYMMDD format)
 - ANYTHING --- any words you want
 - %03d     --- run number, this makes easy to use ROOT macros below.
@@ -84,7 +84,8 @@ I prefer OFN to be named like "../data/YMD/ANYTHING%03d.txt", where
 ### Overwrite data
 
 DAQ program has non-overwriting feature to prevent ACCIDENTAL overwriting.
-In case of overwriting, remove that file first.
+
+If you want to overwrite, remove the file before running DAQ.
 
 ```bash
 $ ./adc 100 SAME_NAMED_FILE
@@ -99,8 +100,6 @@ Number of ADCs and its channels are defined as variable(array) named
 "ModId" and "ChId" in adc.cc(multiadc.cc).
 Modify these numbers and re-compile.
 
-Sample command:
-
 ```bash
 $ emacs adc.cc
 $ ...(edit adc.cc)
@@ -109,10 +108,10 @@ $ make
 
 ### Install CAMAC driver
 
-If you restarted PC for some reason, you need to install CAMAC driver before excecuting DAQ.
-We use "camdrv" for CAMAC driver. Its source is in /opt/hep/kinoko/drv/camdrv/.
+If you restarted PC for some reason, you need to install CAMAC driver before excecuting DAQ. (You need superuser privilege)
 
-Sample command:
+We use "camdrv" for CAMAC driver.
+The driver is is /opt/hep/kinoko/drv/camdrv/.
 
 ```bash
 $ cd /opt/hep/kinoko/drv/camdrv
@@ -124,18 +123,19 @@ $ sudo dmesg
 
 # 4. How to make plots
 
-  ROOT macro demos are in "macors" directory.
-Move to this directory first. Start ROOT CINT and load MACRO
-Then execute as samples below.
+ROOT macro demos are in "macors" directory.
+Move to this directory first.
+Start ROOT CINT and load MACRO.
+Then execute samples as below.
 
-*** IMPORTANT NOTICE ***
+*IMPORTANT NOTICE*
 
 These are just simple demos.
 I encourage you to look into the codes and improve it, or make your own.
 ( If you know ROOT, you can do it =D )
 
 
-Sample command 1: mppcTest.C to check one histogram
+## mppcTest.C : Check a histogram
 
 The function "histText" is defined to return TH1D*.
 
@@ -148,7 +148,7 @@ root[] > TH1D *h1 = histText("h1", "../data/20130305/mppctest001.txt")
 root[] > h1->Draw()
 ```
 
-Sample command 2: adcCalibration.C to check three adc data at one time
+## adcCalibration.C : Check three adc data at once
 
 The function "histText" is defined to return TCanvas*.
 
@@ -160,20 +160,19 @@ root[] > .L adcCalibration.C
 root[] > TCanvas *c1 = histText(32)
 ```
 
-Sample command 3: tracker.C for eventdisplay
+## tracker.C for : Show eventdisplay
 
 You don't need to load tracker.C, just type
 
 ```bash
 $ root tracker.C
 ```
-    or, in case you want to start from certain run number,
+
+or, in case you want to start from certain run number,
 
 ```bash
 $ 'root tracker.C(3)'
 ```
-
-
 
 ## Change branch descriptor
 
@@ -188,9 +187,7 @@ columns of output text format, modify BRANCH_DESCRIPTOR as needed.
 Unfortunately, PCs used in EDIT2013 does not mount USB automatically.
 So please mount USB manually.
 
-Sample command
-
-```bash:mount/unmount USB
+```bash
 $ dmesg
 $ su
 $ sudo mount /dev/sdc1 /mnt/usb    # or /media/usb
