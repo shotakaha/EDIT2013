@@ -46,18 +46,26 @@ You need to specify NEVENT (event number) and OFN (output filename) as arguments
 Output file is created in space-separated-text format.
 
 Sample command 1:
+
+```
     $ cd daq
     $ ./adc NEVENT OFN (additional info).
+```
 
-Sample command 2:
-    If you run without any argument, it will print usage.
-        $ ./adc
-           (--> usage will be printed)
+Sample command 2: (If you run without any argument, usage will be printed.)
+
+```
+    $ ./adc
+        # (--> usage will be printed)
+```
 
 ## ADVANCED
 
 You can also set additional arguments if you want, like below
+
+```
     $ ./adc NEVENT OFN MPPC_ID BIAS_VOLTAGE
+```
 
 
 ### Save data
@@ -68,9 +76,9 @@ It is REALLY important to name data with easy-to-remember-and-handle convention.
 
 My favorite way is to separate data by day. (it depends by purpose, though)
 I prefer OFN to be named like "../data/YMD/ANYTHING%03d.txt", where
-    YMD      --- date (YYYYMMDD format)
-    ANYTHING --- any words you want
-    %03d     --- run number, this makes easy to use ROOT macros below.
+- YMD      --- date (YYYYMMDD format)
+- ANYTHING --- any words you want
+- %03d     --- run number, this makes easy to use ROOT macros below.
 
 
 ### Overwrite data
@@ -78,11 +86,12 @@ I prefer OFN to be named like "../data/YMD/ANYTHING%03d.txt", where
 DAQ program has non-overwriting feature to prevent ACCIDENTAL overwriting.
 In case of overwriting, remove that file first.
 
+```
    $ ./adc 100 SAME_NAMED_FILE
    --> Error: 'SAME_NAMED_FILE' already exists.
    $ rm SAME_NAMED_FILE
    $ ./adc 100 SAME_NAMED_FILE
-
+```
 
 ### Change ADC channnels
 
@@ -91,10 +100,12 @@ Number of ADCs and its channels are defined as variable(array) named
 Modify these numbers and re-compile.
 
 Sample command:
+
+```
     $ emacs adc.cc
     $ ...(edit adc.cc)
     $ make
-
+```
 
 ### Install CAMAC driver
 
@@ -102,11 +113,14 @@ If you restarted PC for some reason, you need to install CAMAC driver before exc
 We use "camdrv" for CAMAC driver. Its source is in /opt/hep/kinoko/drv/camdrv/.
 
 Sample command:
+
+```
     $ cd /opt/hep/kinoko/drv/camdrv
     $ su (ask passwd to lecturer)
     # make install
     # dmesg
     # exit
+```
 
 ---
 
@@ -123,27 +137,40 @@ Then execute as samples below.
 
 
 Sample command 1: mppcTest.C to check one histogram
+
     The function "histText" is defined to return TH1D*.
     You need to create TH1D* and draw histogram.
+
+```
         $ root
         root[] > .L mppcTest.C
         root[] > TH1D *h1 = histText("h1", "../data/20130305/mppctest001.txt")
         root[] > h1->Draw()
-
+```
 
 Sample command 2: adcCalibration.C to check three adc data at one time
+
     The function "histText" is defined to return TCanvas*.
     You need to create TCanvas*. (Canvas will be drawn automatically)
+
+```
         $ root
         root[] > .L adcCalibration.C
         root[] > TCanvas *c1 = histText(32)
+```
 
 Sample command 3: tracker.C for eventdisplay
-    You don't need to load tracker.C, just type
-        $ root tracker.C
 
+    You don't need to load tracker.C, just type
+
+```
+        $ root tracker.C
+```
     or, in case you want to start from certain run number,
+
+```
         $ 'root tracker.C(3)'
+```
 
 
 
@@ -161,6 +188,8 @@ Unfortunately, PCs used in EDIT2013 does not mount USB automatically.
 So please mount USB manually.
 
 Sample command
+
+```
     $ dmesg
     $ su (ask passwd to lecturer)
     # mount /dev/sdc1 /mnt/usb (or /media/usb)
@@ -168,3 +197,4 @@ Sample command
     # ... (rsync or cp files)
     # umount /mnt/usb
     # exit
+```
