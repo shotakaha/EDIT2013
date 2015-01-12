@@ -1,29 +1,33 @@
 # EDIT2013
 
-This README for DAQ and ROOT macros used in EDIT2013 NEU course
-Author   : Shota TAKAHASHI
-Created  : 2013/03/12
-Modified : 2013/03/12
+This README for DAQ and ROOT macros used in EDIT2013 NEU course.
 
+- Author   : Shota TAKAHASHI
+- Created  : 2013/03/12
+- Modified : 2013/03/12
+
+---
 
 # INDEX
 
-  1. How to obtain samples
-  2. What's inside
-  3. How to take data
-    - Save data
-    - Overwrite data
-    - Change ADC channels
-    - Install CAMAC driver
-  4. How to make plots
-    - Chang branch descriptor
-  5. How to use USB
+1. How to obtain samples
+2. What's inside
+3. How to take data
+   - Save data
+   - Overwrite data
+   - Change ADC channels
+   - Install CAMAC driver
+4. How to make plots
+   - Chang branch descriptor
+5. How to use USB
 
+---
 
 # 1. How to obtain samples
 
 Just download "sample.zip" and expand it in any place you want.
 
+---
 
 # 2. What's inside
 
@@ -32,7 +36,7 @@ Just download "sample.zip" and expand it in any place you want.
   + macros/ --- ROOT macros
   + plots/  --- save plots here if neccessary
 
-
+---
 
 # 3. How to take data
 
@@ -104,6 +108,7 @@ Sample command:
     # dmesg
     # exit
 
+---
 
 # 4. How to make plots
 
@@ -148,7 +153,7 @@ Sample command 3: tracker.C for eventdisplay
 to create TTree from text file.  If you changed orders or number of
 columns of output text format, modify BRANCH_DESCRIPTOR as needed.
 
-
+---
 
 # 5. How to use USB
 
