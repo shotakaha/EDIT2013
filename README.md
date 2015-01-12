@@ -31,10 +31,10 @@ Just download "sample.zip" and expand it in any place you want.
 
 # 2. What's inside
 
-  + daq/    --- DAQ programs
-  + data/   --- data
-  + macros/ --- ROOT macros
-  + plots/  --- save plots here if neccessary
++ daq/    --- DAQ programs
++ data/   --- data
++ macros/ --- ROOT macros
++ plots/  --- save plots here if neccessary
 
 ---
 
@@ -116,10 +116,8 @@ Sample command:
 
 ```bash
 $ cd /opt/hep/kinoko/drv/camdrv
-$ su (ask passwd to lecturer)
-# make install
-# dmesg
-# exit
+$ sudo make install    # (ask password to lecturer)
+$ sudo dmesg
 ```
 
 ---
@@ -131,9 +129,10 @@ Move to this directory first. Start ROOT CINT and load MACRO
 Then execute as samples below.
 
 *** IMPORTANT NOTICE ***
-    These are just simple demos.
-    I encourage you to look into the codes and improve it, or make your own.
-    ( If you know ROOT, you can do it =D )
+
+These are just simple demos.
+I encourage you to look into the codes and improve it, or make your own.
+( If you know ROOT, you can do it =D )
 
 
 Sample command 1: mppcTest.C to check one histogram
@@ -191,12 +190,11 @@ So please mount USB manually.
 
 Sample command
 
-```bash
+```bash:mount/unmount USB
 $ dmesg
-$ su (ask passwd to lecturer)
-# mount /dev/sdc1 /mnt/usb (or /media/usb)
-# ls /mnt/usb
-# ... (rsync or cp files)
-# umount /mnt/usb
-# exit
+$ su
+$ sudo mount /dev/sdc1 /mnt/usb    # or /media/usb
+$ ls /mnt/usb
+$ ... (sudo rsync or cp files)
+$ sudo umount /mnt/usb
 ```
