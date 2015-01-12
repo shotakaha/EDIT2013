@@ -47,24 +47,24 @@ Output file is created in space-separated-text format.
 
 Sample command 1:
 
-```
-    $ cd daq
-    $ ./adc NEVENT OFN (additional info).
+```bash
+$ cd daq
+$ ./adc NEVENT OFN (additional info).
 ```
 
 Sample command 2: (If you run without any argument, usage will be printed.)
 
-```
-    $ ./adc
-        # (--> usage will be printed)
+```bash
+$ ./adc
+    # (--> usage will be printed)
 ```
 
 ## ADVANCED
 
 You can also set additional arguments if you want, like below
 
-```
-    $ ./adc NEVENT OFN MPPC_ID BIAS_VOLTAGE
+```bash
+$ ./adc NEVENT OFN MPPC_ID BIAS_VOLTAGE
 ```
 
 
@@ -86,11 +86,11 @@ I prefer OFN to be named like "../data/YMD/ANYTHING%03d.txt", where
 DAQ program has non-overwriting feature to prevent ACCIDENTAL overwriting.
 In case of overwriting, remove that file first.
 
-```
-   $ ./adc 100 SAME_NAMED_FILE
+```bash
+$ ./adc 100 SAME_NAMED_FILE
    --> Error: 'SAME_NAMED_FILE' already exists.
-   $ rm SAME_NAMED_FILE
-   $ ./adc 100 SAME_NAMED_FILE
+$ rm SAME_NAMED_FILE
+$ ./adc 100 SAME_NAMED_FILE
 ```
 
 ### Change ADC channnels
@@ -101,10 +101,10 @@ Modify these numbers and re-compile.
 
 Sample command:
 
-```
-    $ emacs adc.cc
-    $ ...(edit adc.cc)
-    $ make
+```bash
+$ emacs adc.cc
+$ ...(edit adc.cc)
+$ make
 ```
 
 ### Install CAMAC driver
@@ -114,12 +114,12 @@ We use "camdrv" for CAMAC driver. Its source is in /opt/hep/kinoko/drv/camdrv/.
 
 Sample command:
 
-```
-    $ cd /opt/hep/kinoko/drv/camdrv
-    $ su (ask passwd to lecturer)
-    # make install
-    # dmesg
-    # exit
+```bash
+$ cd /opt/hep/kinoko/drv/camdrv
+$ su (ask passwd to lecturer)
+# make install
+# dmesg
+# exit
 ```
 
 ---
@@ -138,45 +138,47 @@ Then execute as samples below.
 
 Sample command 1: mppcTest.C to check one histogram
 
-    The function "histText" is defined to return TH1D*.
-    You need to create TH1D* and draw histogram.
+The function "histText" is defined to return TH1D*.
 
-```
-        $ root
-        root[] > .L mppcTest.C
-        root[] > TH1D *h1 = histText("h1", "../data/20130305/mppctest001.txt")
-        root[] > h1->Draw()
+You need to create TH1D* and draw histogram.
+
+```bash
+$ root
+root[] > .L mppcTest.C
+root[] > TH1D *h1 = histText("h1", "../data/20130305/mppctest001.txt")
+root[] > h1->Draw()
 ```
 
 Sample command 2: adcCalibration.C to check three adc data at one time
 
-    The function "histText" is defined to return TCanvas*.
-    You need to create TCanvas*. (Canvas will be drawn automatically)
+The function "histText" is defined to return TCanvas*.
 
-```
-        $ root
-        root[] > .L adcCalibration.C
-        root[] > TCanvas *c1 = histText(32)
+You need to create TCanvas*. (Canvas will be drawn automatically)
+
+```bash
+$ root
+root[] > .L adcCalibration.C
+root[] > TCanvas *c1 = histText(32)
 ```
 
 Sample command 3: tracker.C for eventdisplay
 
-    You don't need to load tracker.C, just type
+You don't need to load tracker.C, just type
 
-```
-        $ root tracker.C
+```bash
+$ root tracker.C
 ```
     or, in case you want to start from certain run number,
 
-```
-        $ 'root tracker.C(3)'
+```bash
+$ 'root tracker.C(3)'
 ```
 
 
 
 ## Change branch descriptor
 
-  All macros use method "TTree::ReadFile(FILENAME, BRANCH_DESCRIPTOR)"
+All macros use method "TTree::ReadFile(FILENAME, BRANCH_DESCRIPTOR)"
 to create TTree from text file.  If you changed orders or number of
 columns of output text format, modify BRANCH_DESCRIPTOR as needed.
 
@@ -189,12 +191,12 @@ So please mount USB manually.
 
 Sample command
 
-```
-    $ dmesg
-    $ su (ask passwd to lecturer)
-    # mount /dev/sdc1 /mnt/usb (or /media/usb)
-    # ls /mnt/usb
-    # ... (rsync or cp files)
-    # umount /mnt/usb
-    # exit
+```bash
+$ dmesg
+$ su (ask passwd to lecturer)
+# mount /dev/sdc1 /mnt/usb (or /media/usb)
+# ls /mnt/usb
+# ... (rsync or cp files)
+# umount /mnt/usb
+# exit
 ```
