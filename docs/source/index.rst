@@ -6,10 +6,21 @@
 Welcome to EDIT2013's documentation!
 ====================================
 
-Contents:
+The Document for DAQ and ROOT macros used in EDIT2013 NEU course
+
+:Author: Shota TAKAHASHI
+:Created: 2013/03/12
+:Modified: 2013/03/12
+
 
 .. toctree::
    :maxdepth: 2
+
+   how-to-obtain-samples
+   what-is-inside
+   how-to-take-data
+   how-to-make-plots
+   how-to-use-usb
 
 
 
@@ -19,4 +30,3 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
