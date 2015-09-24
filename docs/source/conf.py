@@ -216,10 +216,10 @@ htmlhelp_basename = 'EDIT2013doc'
 
 latex_elements = {
 # The paper size ('letterpaper' or 'a4paper').
-#'papersize': 'letterpaper',
+    'papersize': 'a4paper',
 
 # The font size ('10pt', '11pt' or '12pt').
-#'pointsize': '10pt',
+    'pointsize': '12pt',
 
 # Additional stuff for the LaTeX preamble.
 #'preamble': '',
@@ -233,7 +233,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
   (master_doc, 'EDIT2013.tex', 'EDIT2013 Documentation',
-   'Shota Takahashi', 'manual'),
+   'Shota Takahashi', 'howto'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
