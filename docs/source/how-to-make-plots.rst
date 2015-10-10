@@ -7,10 +7,11 @@ Move to this directory first.
 Start ROOT CINT and load MACRO.
 Then execute as samples below.
 
-*** IMPORTANT NOTICE ***
-    These are just simple demos.
-    I encourage you to look into the codes and improve it, or make your own.
-    ( If you know ROOT, you can do it =D )
+.. note::
+
+   These are just simple demos.
+   I encourage you to look into the codes and improve it, or make your own.
+   ( If you know ROOT, you can do it =D )
 
 
 :Sample command 1: mppcTest.C to check one histogram
